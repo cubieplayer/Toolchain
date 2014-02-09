@@ -48,7 +48,7 @@ cc1 -E %{traditional|ftraditional|traditional-cpp:-traditional-cpp}
 %{shared|pie:crtendS.o%s;:crtend.o%s} crtn.o%s
 
 *link:
-%{!static:--eh-frame-hdr} %{h*} %{version:-v}    %{b}    %{static:-Bstatic}    %{shared:-shared}    %{symbolic:-Bsymbolic}    %{rdynamic:-export-dynamic}    %{!dynamic-linker:-dynamic-linker %{muclibc:%{mglibc:%e-mglibc and -muclibc used together}/lib/ld-uClibc.so.0;:/lib/arm-linux-gnueabihf/ld-linux.so.3}}    -X    %{mbig-endian:-EB} %{mlittle-endian:-EL} -m armelf_linux_eabi %{mbig-endian:%{march=armv7-a|mcpu=cortex-a5|mcpu=cortex-a8|mcpu=cortex-a9:%{!r:--be8}}}
+%{!static:--eh-frame-hdr} %{h*} %{version:-v}    %{b}    %{static:-Bstatic}    %{shared:-shared}    %{symbolic:-Bsymbolic}    %{rdynamic:-export-dynamic}    %{!dynamic-linker:-dynamic-linker %{muclibc:%{mglibc:%e-mglibc and -muclibc used together}/lib/ld-uClibc.so.0;:/lib/ld-linux.so.3}}    -X    %{mbig-endian:-EB} %{mlittle-endian:-EL} -m armelf_linux_eabi %{mbig-endian:%{march=armv7-a|mcpu=cortex-a5|mcpu=cortex-a8|mcpu=cortex-a9:%{!r:--be8}}}
 
 *lib:
 %{pthread:-lpthread}    %{shared:-lc}    %{!shared:%{profile:-lc_p}%{!profile:-lc}}
